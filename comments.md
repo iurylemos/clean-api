@@ -33,3 +33,7 @@ Inside this have a folder call cache to save the interfaces
 ### Interface Segregation Principle
 
 `Should have small interfaces to can do the composition easier`
+
+### SpyOn used with prototype class
+
+This is a interesting refactor because it can be used as a mock
