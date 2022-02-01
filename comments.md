@@ -24,3 +24,8 @@ Example code:
         return ""
     }
 ```
+
+## Protocols folder
+
+Protocols folder is used to keep every the dependencies about this data layer
+Inside this have a folder call cache to save the interfaces
