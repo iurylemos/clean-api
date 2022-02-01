@@ -2,7 +2,7 @@ import { CacheStore } from "@/data/protocols/cache";
 import { LocalSavePurchases } from "@/data/usecases";
 import { SavePurchases } from "@/domain";
 
-class CacheStoreSpy implements CacheStore {
+class CacheStoreSpy implements CacheStore<SavePurchases.Params[]> {
   deleteCallsCount = 0;
   insertCallsCount = 0;
   deleteKey: string;
@@ -14,7 +14,7 @@ class CacheStoreSpy implements CacheStore {
     this.deleteKey = key;
   }
 
-  insert(key: string, value: any): void {
+  insert(key: string, value: SavePurchases.Params[]): void {
     this.insertCallsCount++;
     this.insertKey = key;
     this.insertValues = value;
