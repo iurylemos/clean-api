@@ -29,3 +29,7 @@ Example code:
 
 Protocols folder is used to keep every the dependencies about this data layer
 Inside this have a folder call cache to save the interfaces
+
+### Interface Segregation Principle
+
+`Should have small interfaces to can do the composition easier`
