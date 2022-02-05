@@ -2,7 +2,7 @@ import { SavePurchases } from "@/domain/usecases";
 import { CacheStore } from "@/data/protocols/cache";
 
 export class CacheStoreSpy implements CacheStore<SavePurchases.Params[]> {
-  messages: CacheStoreSpy.Message[] = [];
+  actions: CacheStoreSpy.Action[] = [];
   deleteKey: string;
   insertKey: string;
   insertValues: CacheStore.CacheStoreValue<SavePurchases.Params[]> = {
@@ -11,7 +11,7 @@ export class CacheStoreSpy implements CacheStore<SavePurchases.Params[]> {
 
   delete(key: string): void {
     this.deleteKey = key;
-    this.messages.push(CacheStoreSpy.Message.delete);
+    this.actions.push(CacheStoreSpy.Action.delete);
   }
 
   insert(
@@ -20,19 +20,19 @@ export class CacheStoreSpy implements CacheStore<SavePurchases.Params[]> {
   ): void {
     this.insertKey = key;
     this.insertValues = { timestamp, value };
-    this.messages.push(CacheStoreSpy.Message.insert);
+    this.actions.push(CacheStoreSpy.Action.insert);
   }
 
   simulateDeleteError(): void {
     jest.spyOn(CacheStoreSpy.prototype, "delete").mockImplementationOnce(() => {
-      this.messages.push(CacheStoreSpy.Message.delete);
+      this.actions.push(CacheStoreSpy.Action.delete);
       throw new Error();
     });
   }
 }
 
 export namespace CacheStoreSpy {
-  export enum Message {
+  export enum Action {
     delete,
     insert,
   }
