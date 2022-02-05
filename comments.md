@@ -37,3 +37,8 @@ Inside this have a folder call cache to save the interfaces
 ### SpyOn used with prototype class
 
 This is a interesting refactor because it can be used as a mock
+
+### Class name about Purchases
+
+`Could be a name with the use case stronger but I solve to place some name generic as Manager in end line`
+`Has been added a model to the domain folder because the use cases inside this have been using the same interface`
