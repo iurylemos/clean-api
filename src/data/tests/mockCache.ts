@@ -5,16 +5,21 @@ export class CacheStoreSpy implements CacheStore<SavePurchases.Params[]> {
   messages: CacheStoreSpy.Message[] = [];
   deleteKey: string;
   insertKey: string;
-  insertValues: SavePurchases.Params[] = [];
+  insertValues: CacheStore.CacheStoreValue<SavePurchases.Params[]> = {
+    value: [],
+  };
 
   delete(key: string): void {
     this.deleteKey = key;
     this.messages.push(CacheStoreSpy.Message.delete);
   }
 
-  insert(key: string, value: SavePurchases.Params[]): void {
+  insert(
+    key: string,
+    { timestamp, value }: CacheStore.CacheStoreValue<SavePurchases.Params[]>
+  ): void {
     this.insertKey = key;
-    this.insertValues = value;
+    this.insertValues = { timestamp, value };
     this.messages.push(CacheStoreSpy.Message.insert);
   }
 
