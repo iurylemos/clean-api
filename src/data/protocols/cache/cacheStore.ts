@@ -1,11 +1,12 @@
-export interface CacheStore<T> {
+export interface CacheStore {
   delete: (key: string) => void;
-  insert: (key: string, value: CacheStore.CacheStoreValue<T>) => void;
+  insert: (key: string, value: CacheStore.CacheStoreValue) => void;
+  fetch: (key: string) => void;
 }
 
 export namespace CacheStore {
-  export type CacheStoreValue<T> = {
+  export type CacheStoreValue = {
     timestamp?: Date;
-    value: T;
+    value: any;
   };
 }
