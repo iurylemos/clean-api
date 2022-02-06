@@ -1,4 +1,4 @@
-import { CacheStoreSpy } from "@/data/tests";
+import { CacheStoreSpy, getCacheExpirationDate } from "@/data/tests";
 import { LocalPurchasesManager } from "@/data/usecases";
 
 type SutTypes = {
@@ -27,5 +27,18 @@ describe("Local Validate Purchases", () => {
       CacheStoreSpy.Action.delete,
     ]);
     expect(cacheStore.deleteKey).toBe("purchases");
+  });
+
+  it("should has no side effect if load succeeds", () => {
+    const currentDate = new Date();
+    const timestamp = getCacheExpirationDate(currentDate);
+    timestamp.setSeconds(timestamp.getSeconds() + 1);
+    const { cacheStore, sut } = makeSut(currentDate);
+    cacheStore.insert("purchases", { timestamp, value: [] });
+    sut.validate();
+    expect(cacheStore.actions).toEqual([
+      CacheStoreSpy.Action.insert,
+      CacheStoreSpy.Action.fetch,
+    ]);
   });
 });
