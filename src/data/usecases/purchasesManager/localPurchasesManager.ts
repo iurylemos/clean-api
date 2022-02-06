@@ -21,9 +21,9 @@ export class LocalPurchasesManager implements SavePurchases, LoadPurchases {
       const cache = this.cacheStore.fetch(this.key);
       if (CachePolicy.validate(cache.timestamp, this.currentDate))
         return cache.value;
-      throw new Error();
-    } catch (error) {
       this.cacheStore.delete(this.key);
+      return [];
+    } catch (error) {
       return [];
     }
   }
