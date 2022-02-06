@@ -25,10 +25,7 @@ describe("Local Load Purchases", () => {
   it("should call correct key on load", async () => {
     const { cacheStore, sut } = makeSut();
     await sut.loadAll();
-    expect(cacheStore.actions).toEqual([
-      CacheStoreSpy.Action.fetch,
-      CacheStoreSpy.Action.delete,
-    ]);
+    expect(cacheStore.actions).toEqual([CacheStoreSpy.Action.fetch]);
     expect(cacheStore.fetchKey).toBe("purchases");
   });
 
@@ -64,9 +61,7 @@ describe("Local Load Purchases", () => {
     expect(cacheStore.actions).toEqual([
       CacheStoreSpy.Action.insert,
       CacheStoreSpy.Action.fetch,
-      CacheStoreSpy.Action.delete,
     ]);
-    expect(cacheStore.deleteKey).toBe("purchases");
     expect(purchases).toEqual([]);
   });
 
@@ -79,9 +74,7 @@ describe("Local Load Purchases", () => {
     expect(cacheStore.actions).toEqual([
       CacheStoreSpy.Action.insert,
       CacheStoreSpy.Action.fetch,
-      CacheStoreSpy.Action.delete,
     ]);
-    expect(cacheStore.deleteKey).toBe("purchases");
     expect(purchases).toEqual([]);
   });
 
