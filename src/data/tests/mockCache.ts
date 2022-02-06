@@ -20,9 +20,10 @@ export class CacheStoreSpy implements CacheStore {
     this.actions.push(CacheStoreSpy.Action.insert);
   }
 
-  fetch(key: string): void {
+  fetch(key: string): CacheStore.CacheStoreValue {
     this.fetchKey = key;
     this.actions.push(CacheStoreSpy.Action.fetch);
+    return this.insertValues;
   }
 
   simulateDeleteError(): void {

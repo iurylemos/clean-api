@@ -1,7 +1,7 @@
 export interface CacheStore {
   delete: (key: string) => void;
   insert: (key: string, value: CacheStore.CacheStoreValue) => void;
-  fetch: (key: string) => void;
+  fetch: (key: string) => CacheStore.CacheStoreValue;
 }
 
 export namespace CacheStore {
