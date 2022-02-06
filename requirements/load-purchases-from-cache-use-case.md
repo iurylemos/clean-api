@@ -7,11 +7,15 @@
 3. ✅ Sistema valida se o Cache tem menos de 3 dias
 4. ✅ Sistema cria uma lista de compras a partir dos dados do Cache
 5. ✅ Sistema retorna a lista de compras
-   > ## Exceção - Erro ao carregar dados do Cache
-6. ✅ Sistema limpa o Cache
-7. ✅ Sistema retorna uma lista vazia
-   > ## Exceção - Cache expirado
-8. ✅ Sistema limpa o Cache
-9. ✅ Sistema retorna uma lista vazia
-   > ## Exceção - Cache vazio
-10. ✅ Sistema retorna uma lista vazia
+
+> ## Exceção - Erro ao carregar dados do Cache
+
+1. ✅ Sistema limpa o Cache
+
+> ## Exceção - Cache expirado
+
+1. ✅ Sistema limpa o Cache
+
+> ## Exceção - Cache vazio
+
+1. ✅ Sistema retorna uma lista vazia
