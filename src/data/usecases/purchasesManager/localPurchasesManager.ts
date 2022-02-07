@@ -1,7 +1,7 @@
-import { CachePolicy, CacheStore } from "@/data/protocols/cache";
-import { SavePurchases, LoadPurchases } from "@/domain/usecases";
+import { CachePolicy, CacheStore } from '@/data/protocols/cache'
+import { SavePurchases, LoadPurchases } from '@/domain/usecases'
 export class LocalPurchasesManager implements SavePurchases, LoadPurchases {
-  private readonly key = "purchases";
+  private readonly key = 'purchases'
 
   constructor(
     private readonly cacheStore: CacheStore,
@@ -9,31 +9,33 @@ export class LocalPurchasesManager implements SavePurchases, LoadPurchases {
   ) {}
 
   async save(purchases: SavePurchases.Params[]): Promise<void> {
-    this.cacheStore.delete(this.key);
+    this.cacheStore.delete(this.key)
     this.cacheStore.insert(this.key, {
       timestamp: this.currentDate,
-      value: purchases,
-    });
+      value: purchases
+    })
   }
 
   async loadAll(): Promise<LoadPurchases.Result[]> {
     try {
-      const cache = this.cacheStore.fetch(this.key);
-      if (CachePolicy.validate(cache.timestamp, this.currentDate))
-        return cache.value;
-      return [];
+      const cache = this.cacheStore.fetch(this.key)
+      if (CachePolicy.validate(cache.timestamp, this.currentDate)) {
+        return cache.value
+      }
+      return []
     } catch (error) {
-      return [];
+      return []
     }
   }
 
   validate(): void {
     try {
-      const cache = this.cacheStore.fetch(this.key);
-      if (!CachePolicy.validate(cache.timestamp, this.currentDate))
-        throw new Error();
+      const cache = this.cacheStore.fetch(this.key)
+      if (!CachePolicy.validate(cache.timestamp, this.currentDate)) {
+        throw new Error()
+      }
     } catch (error) {
-      this.cacheStore.delete(this.key);
+      this.cacheStore.delete(this.key)
     }
   }
 }

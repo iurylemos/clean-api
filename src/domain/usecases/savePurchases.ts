@@ -1,4 +1,4 @@
-import { PurchaseModel } from "../models";
+import { PurchaseModel } from '../models'
 
 export interface SavePurchases {
   save: (purchases: SavePurchases.Params[]) => Promise<void>;

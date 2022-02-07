@@ -1,2 +1,2 @@
-export * from "./savePurchases";
-export * from "./loadPurchases";
+export * from './savePurchases'
+export * from './loadPurchases'

@@ -1,1 +1,1 @@
-export * from "./purchasesManager/localPurchasesManager";
+export * from './purchasesManager/localPurchasesManager'

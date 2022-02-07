@@ -1,2 +1,2 @@
-export * from "./cacheStore";
-export * from "./cachePolicy";
+export * from './cacheStore'
+export * from './cachePolicy'
