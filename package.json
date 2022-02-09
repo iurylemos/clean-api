@@ -3,13 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "husky": {
-    "hooks": {
-      "pre-commit": "echo 'teste'"
-    }
-  },
   "scripts": {
-    "test": "jest --no-cache --watchAll"
+    "test": "jest --no-cache",
+    "test:watch": "jest --no-cache --watchAll"
   },
   "devDependencies": {
     "@types/faker": "5.5.3",
