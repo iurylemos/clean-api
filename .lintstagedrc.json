@@ -1,0 +1,6 @@
+{
+  "*.{js,ts}": [
+    "prettier --write",
+    "eslint **/*.{js,ts} --ignore-pattern node_modules/"
+  ]
+}
