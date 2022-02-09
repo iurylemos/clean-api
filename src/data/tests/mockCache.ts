@@ -1,5 +1,3 @@
-/* eslint-disable import/export */
-/* eslint-disable no-unused-vars */
 import { CacheStore } from '@/data/protocols/cache'
 
 const maxAgeInDays = 3

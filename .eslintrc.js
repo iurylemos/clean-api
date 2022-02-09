@@ -25,6 +25,7 @@ module.exports = {
     ],
     '@typescript-eslint/no-redeclare': 'off',
     'no-redeclare': 'off',
-    'import/export': 'off'
+    'import/export': 'off',
+    'no-unused-vars': 'off'
   }
 }
