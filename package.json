@@ -7,6 +7,7 @@
     "test": "jest --no-cache",
     "test:watch": "jest --no-cache --watchAll",
     "lint": "eslint **/*.ts --ignore-pattern node_modules/",
+    "lint:fix": "eslint **/*.ts --ignore-pattern node_modules/ --fix",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -33,7 +34,7 @@
   "lint-staged": {
     "*.{js,ts}": [
       "prettier --write",
-      "eslint **/*.ts --ignore-pattern node_modules/"
+      "eslint **/*.{js,ts} --ignore-pattern node_modules/"
     ]
   }
 }
