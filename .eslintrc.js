@@ -24,6 +24,7 @@ module.exports = {
       }
     ],
     '@typescript-eslint/no-redeclare': 'off',
-    'no-redeclare': 'off'
+    'no-redeclare': 'off',
+    'import/export': 'off'
   }
 }
