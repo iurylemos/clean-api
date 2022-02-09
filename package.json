@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "jest --no-cache --findRelatedTests",
+    "test": "cross-env CI=true jest --bail",
     "test:watch": "jest --no-cache --watchAll",
     "lint": "eslint **/*.ts --ignore-pattern node_modules/",
     "lint:fix": "eslint **/*.ts --ignore-pattern node_modules/ --fix",
@@ -16,6 +16,7 @@
     "@types/node": "^17.0.13",
     "@typescript-eslint/eslint-plugin": "^5.10.2",
     "@typescript-eslint/parser": "^5.10.2",
+    "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
