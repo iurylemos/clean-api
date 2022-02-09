@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "jest --no-cache",
+    "test": "jest --no-cache --findRelatedTests",
     "test:watch": "jest --no-cache --watchAll",
     "lint": "eslint **/*.ts --ignore-pattern node_modules/",
     "lint:fix": "eslint **/*.ts --ignore-pattern node_modules/ --fix",
